@@ -58,6 +58,7 @@ To update to a new lfk release, change `version` in `flake.nix`, then update the
 2. Run `nix build` — the error output shows the correct `hash`
 3. Update `hash`, run `nix build` again — the error output shows the correct `vendorHash`
 4. Update `vendorHash`, run `nix build` to confirm
+5. **Note:** If the build fails with a Go version error, check the `postPatch` section in `flake.nix` and ensure the `sed` command matches the Go version in the new release's `go.mod`.
 
 ## License
 
