@@ -9,7 +9,7 @@
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      version = "0.10.4";
+      version = "0.11.5";
     in
     {
       packages = forAllSystems (system:
@@ -25,22 +25,22 @@
               owner = "janosmiko";
               repo = "lfk";
               rev = "v${version}";
-              hash = "sha256-av5px1ASLpN8i/p2QX7Ja1Lw6eAsPXoSfOD6MIFMxkI=";
+              hash = "sha256-oXQSYwROjC7JJOf7Baz44XnCSN1WPPYUEiBovIOa9No=";
             };
 
-            vendorHash = "sha256-GfJr3jtG+GhV7AHgM0EjPe+bFqdIRkHpjaylu753cGI=";
+            vendorHash = "sha256-zUfHbY8zyQxKOuruwi0G6J+d5o3ihU96Hg1OqPRtB9g=";
 
             env.CGO_ENABLED = "0";
 
             excludedPackages = [ "internal/version" ];
 
             postPatch = ''
-              sed -i 's/^go 1\.26\.2/go 1.26.1/' go.mod
+              sed -i 's/^go 1\.26\.[0-9]*/go 1.26.1/' go.mod
             '';
 
             overrideModAttrs = (_: {
               postPatch = ''
-                sed -i 's/^go 1\.26\.2/go 1.26.1/' go.mod
+                sed -i 's/^go 1\.26\.[0-9]*/go 1.26.1/' go.mod
               '';
             });
 
