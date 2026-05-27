@@ -7,13 +7,13 @@ Nix flake for [lfk](https://github.com/janosmiko/lfk) — a lightning-fast, keyb
 ### Run without installing
 
 ```bash
-nix run codeberg:tmichnicki/lfk-nix
+nix run github:michnicki/lfk-nix
 ```
 
 ### Install via `nix profile`
 
 ```bash
-nix profile install codeberg:tmichnicki/lfk-nix
+nix profile install github:michnicki/lfk-nix
 ```
 
 ### Use in your own flake
@@ -22,7 +22,7 @@ nix profile install codeberg:tmichnicki/lfk-nix
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    lfk-nix.url = "codeberg:tmichnicki/lfk-nix";
+    lfk-nix.url = "github:michnicki/lfk-nix";
   };
 
   outputs = { nixpkgs, lfk-nix, ... }: {
