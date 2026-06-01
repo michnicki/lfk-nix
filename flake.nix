@@ -9,7 +9,7 @@
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      version = "0.12.6";
+      version = "0.13.2";
     in
     {
       packages = forAllSystems (system:
@@ -25,7 +25,7 @@
               owner = "janosmiko";
               repo = "lfk";
               rev = "v${version}";
-              hash = "sha256-h/KKsjN6IKNDTipYdNUuF4TQVOj7Zi5HPnyF5UlINhQ=";
+              hash = "sha256-dZGRY9yJff0hKPE6Y046vJFiShmc3sKiaIWgqLNDZj8=";
             };
 
             vendorHash = "sha256-3kQLUdKc8VYblYHFVh+iPl+mMfdnkHe138dMwPy50WQ=";
