@@ -32,10 +32,13 @@
 
             env.CGO_ENABLED = "0";
 
-            excludedPackages = [ "internal/version" ];
+            excludedPackages = [ "internal/version" "e2e" ];
 
             postPatch = ''
               sed -i 's/^go 1\.26\.[0-9]*/go 1.26.1/' go.mod
+              # v0.17.x: upstream test hardcodes the dev version; release builds
+              # inject the real one via ldflags. Keep the prefix assertion only.
+              sed -i '/assert.Contains(t, got, "dev")/d' internal/k8s/fieldmanager_test.go
             '';
 
             overrideModAttrs = (_: {
